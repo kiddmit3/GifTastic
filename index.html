@@ -113,7 +113,7 @@ $("#add-Topic").on("click",function (event){
 //function that generates gifs with rating
 function displayGif(){
 	var topic = $(this).val();
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+topic+"&api_key=0ff8db3fa6bc4cdbb067209642265e26&limit=10";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+topic+"&api_key=0ff8db3fa6bc4cdbb067209642265e26&limit=10";
 
 	$.ajax({
 		url:queryURL,
