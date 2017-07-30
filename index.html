@@ -4,61 +4,116 @@
 	<meta charset="UTF-8">
 	
 	<title>Gifs</title>
+	<link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
+	.pic {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+
+	.col-sm-3 {
+		border: solid black 1px;
+		padding:20px 0px 200px 0px;
+		border-radius: 25px;
+	}
+
 	.btn {
 		margin:5px;
 		padding:5px 40px 5px 40px;
 	}
 
-	#animals-form {
+	#input-form {
 		margin-left: 10px;
 	}
+
+	.container {
+		margin: auto;
+	}
+
+	h1 {
+		text-align: center;
+		font-family: 'Zilla Slab Highlight', cursive;
+		background-color: #333333;
+		color: white;
+	}
+	
+	.footer {
+		background-color: #333333;
+		color: white;
+		position: fixed;
+		bottom: 10px;
+		width: 100%;
+
+	}
+
 </style>
 
 </head>
 <body>
 
-<div id="buttonArea"></div>
+<h1>.GIF-TASTIC </h1>
+<div class="container">
+	<div class="row">
+	<div class="col-sm-12">
+		<div id="buttonArea"></div>
+	</div>
+	</div>
 <br/>
-<form id="animals-form">
-      <label for="animal-input">Add an animal</label><br/>
-      <input type="text" id="animal-input"><br>
-      <input id="add-animal" type="submit" value="Add">
-    </form>
-<div id="gif-area"></div>
+
+	<div class="row">
+	<div class="col-sm-9" id="gif-area"></div>
+	<div class="col-sm-3">
+
+    	<img class="gif pic" src="assets/jif.gif">
+
+		<form id="input-form">
+      		<label for="inputUser">Add some moar food!</label><br/>
+      		<input type="text" id="inputUser"><br>
+      		<input id="add-Topic" type="submit" value="Add">
+    	</form>
+
+	</div>
+	</div>
+
+</div>
+
+<footer class="footer">
+      <div class="container"> Copyright &copy; 2017 David Lac
+      </div>
+    </footer>
 
 
 <script type="text/javascript">
- var animals = ["dog", "cat", "pig", "cow", "sloth"]
+ var topics = ["burgers", "fries", "hot dog", "ramen", "udon", "pizza", "tacos", "burritos", "sushi", "protein shakes","fried chicken", "steak", "pho", "waffles"]
 
 
 //function that generates buttons from array onto the first line
 function buttonGenerator(){
 	$("#buttonArea").empty();
-	for (var i =0; i < animals.length; i++){
+	for (var i =0; i < topics.length; i++){
 		var a = $("<button>");
 		a.addClass("btn");
-		a.attr("value", animals[i]);
-		a.text(animals[i]);
+		a.attr("value", topics[i]);
+		a.text(topics[i]);
 		$("#buttonArea").append(a);
 	}
 }
 
 //adding new buttons from form
-$("#add-animal").on("click",function (event){
+$("#add-Topic").on("click",function (event){
 	event.preventDefault();
-	var animal = $("#animal-input").val().trim();
-	animals.push(animal);
+	var topic = $("#inputUser").val().trim();
+	topics.push(topic);
 	buttonGenerator()
 });
 
 //function that generates gifs with rating
 function displayGif(){
-	var animal = $(this).val();
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+animal+"&api_key=dc6zaTOxFJmzC&limit=10";
+	var topic = $(this).val();
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+topic+"&api_key=0ff8db3fa6bc4cdbb067209642265e26&limit=10";
 
 	$.ajax({
 		url:queryURL,
