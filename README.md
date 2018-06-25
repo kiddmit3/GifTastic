@@ -1,7 +1,6 @@
 # GifTastic
 
-
-![](./assets/gif.PNG | width=500)
+<p align="center"><img src="./assets/gif.PNG" width="500" /></p>
 
 ## Overview
 1. This web page populates with gifs provided by GIPHY API.
