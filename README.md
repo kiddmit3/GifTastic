@@ -1,6 +1,7 @@
 # GifTastic
 
-<p align="center"><img src="./assets/gif.PNG" /></p>
+
+![](./assets/gif.PNG | width=500)
 
 ## Overview
 1. This web page populates with gifs provided by GIPHY API.
@@ -13,7 +14,3 @@
 
 ## DEMO
 [https://kiddmit3.github.io/GifTastic](https://kiddmit3.github.io/GifTastic)
-
-## Technologies
-+ Node.js
-+ npm packages (Request)
